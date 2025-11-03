@@ -4,33 +4,38 @@ import { UtensilsCrossed, HardDrive as Wardrobe, Sofa, Tv2, Building2, Home } fr
 const services = [
   {
     icon: UtensilsCrossed,
-    title: "Modular Kitchen",
-    description: "Custom-designed kitchens with premium materials",
+    title: "Modular Kitchens",
+    description: "Custom-designed modular kitchens in Chennai with premium materials and 15+ years of expertise.",
   },
   {
     icon: Wardrobe,
-    title: "Wardrobe Design",
-    description: "Functional and stylish storage solutions",
+    title: "Wardrobes & Closet Solutions",
+    description: "Functional and stylish wardrobe and closet solutions tailored for your home.",
   },
   {
     icon: Sofa,
-    title: "Living Room Setup",
-    description: "Create your perfect gathering space",
+    title: "Living Room Designs",
+    description: "Create your perfect gathering space with bespoke living room interior designs.",
   },
   {
     icon: Tv2,
     title: "TV Units & False Ceiling",
-    description: "Modern entertainment and ceiling solutions",
+    description: "Modern entertainment units and elegant false ceiling solutions for contemporary homes.",
+  },
+  {
+    icon: Home,
+    title: "Pooja Units",
+    description: "Custom prayer room designs (Pooja units) that blend tradition with modern aesthetics.",
   },
   {
     icon: Building2,
     title: "Commercial Interiors",
-    description: "Office and retail space design",
+    description: "Expert office and retail space interior design services for businesses in Chennai.",
   },
   {
     icon: Home,
     title: "Turnkey Projects",
-    description: "Complete home transformation solutions",
+    description: "Complete home interior transformation solutions, from concept to execution, by Livinza.",
   },
 ]
 
@@ -39,8 +44,8 @@ export default function Services() {
     <section className="w-full py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl   font-bold text-foreground mb-4">Our Services</h2>
-          <p className="text-lg text-muted-foreground">Comprehensive design solutions for every space</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Expert Interior Design Services by Livinza</h2>
+          <p className="text-lg text-muted-foreground">Discover our comprehensive range of luxury interior design solutions for residential and commercial properties.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

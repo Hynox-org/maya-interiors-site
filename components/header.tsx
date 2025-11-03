@@ -36,8 +36,8 @@ export default function Header({ onServiceClick, onPortfolioClick, onContactClic
     >
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold text-foreground">
-          <span className="text-accent">Interior</span>Design
+        <div className="text-4xl font-bold text-[#8BA186]">
+          Livinza
         </div>
 
         {/* Desktop Navigation */}

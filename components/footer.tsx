@@ -1,16 +1,17 @@
 import { Instagram, Facebook } from "lucide-react"
+import Link from "next/link"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="w-full bg-foreground text-white py-12 px-4">
+    <footer className="w-full bg-foreground text-primary py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h4 className="  font-bold text-lg mb-4">About Us</h4>
+            <h4 className="font-bold text-lg mb-4">About Livinza</h4>
             <p className="text-sm opacity-75 leading-relaxed">
-              Transforming spaces into beautiful, functional interiors for over a decade.
+              Livinza is an interior design company based in Chennai, India, specializing in modular kitchen and home interior design services with 15+ years of experience.
             </p>
           </div>
           <div>
@@ -73,8 +74,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm opacity-75">
-          <p>Copyright © {currentYear} Design Studio. All rights reserved.</p>
-          <p>Designed & Developed with ❤️</p>
+          <p>Copyright © {currentYear} Livinza. All rights reserved.</p>
+          <p>Designed & Developed with ❤️ <span><Link href={"https://www.hynox.in"}>HYNOX</Link></span></p>
         </div>
       </div>
     </footer>

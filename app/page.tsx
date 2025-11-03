@@ -6,9 +6,12 @@ import Hero from "@/components/hero"
 import About from "@/components/about"
 import Services from "@/components/services"
 import Portfolio from "@/components/portfolio"
-import Testimonials from "@/components/testimonials"
+import WarrantySection from "@/components/warrenty-section"
+import GoogleReviews from "@/components/google-reviews"
+import LocationSection from "@/components/location-section"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
+import WhatsAppFloat from "@/components/whatsapp-float"
 
 export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null)
@@ -38,9 +41,24 @@ export default function Home() {
       <div ref={portfolioRef}>
         <Portfolio />
       </div>
-      <Testimonials />
+      
+      {/* 10 Years Warranty Section */}
+      <WarrantySection />
+      
+      {/* Google Reviews Section with Sample Data */}
+      <GoogleReviews />
+      
+      {/* Location Section with Google Maps Embed */}
+      <LocationSection />
+      
       <Contact ref={contactRef} />
       <Footer />
+      
+      {/* WhatsApp Floating Button */}
+      <WhatsAppFloat 
+        phoneNumber="919876543210" 
+        message="Hi! I'd like to know more about your services."
+      />
     </main>
   )
 }
