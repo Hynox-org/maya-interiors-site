@@ -30,14 +30,17 @@ export default function Header({ onServiceClick, onPortfolioClick, onContactClic
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg"
     >
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-4xl font-bold text-[#8BA186]">
-          Livinza
+        <div className="flex flex-col items-start">
+          <div className="text-3xl font-bold text-[#8BA186]">
+            Livinza
+          </div>
+          <div className="text-lg font-light text-primary -mt-2">
+            interior for you
+          </div>
         </div>
 
         {/* Desktop Navigation */}
@@ -46,9 +49,7 @@ export default function Header({ onServiceClick, onPortfolioClick, onContactClic
             <button
               key={item.label}
               onClick={item.onClick}
-              className={`font-medium transition-colors ${
-                isScrolled ? "text-foreground hover:text-accent" : "text-white hover:text-accent"
-              }`}
+              className="font-medium transition-colors text-foreground hover:text-accent"
             >
               {item.label}
             </button>
@@ -58,9 +59,9 @@ export default function Header({ onServiceClick, onPortfolioClick, onContactClic
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
           {isMobileMenuOpen ? (
-            <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+            <X className="w-6 h-6 text-foreground" />
           ) : (
-            <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+            <Menu className="w-6 h-6 text-foreground" />
           )}
         </button>
       </div>

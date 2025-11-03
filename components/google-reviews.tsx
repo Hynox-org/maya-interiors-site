@@ -1,6 +1,7 @@
 "use client"
 
 import { FaStar, FaGoogle } from "react-icons/fa"
+import React, { useRef, useEffect } from "react"
 
 interface Review {
   author_name: string
@@ -11,6 +12,40 @@ interface Review {
 }
 
 export default function GoogleReviews() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current
+    if (!scrollContainer) return
+
+    let scrollInterval: NodeJS.Timeout
+
+    const startScrolling = () => {
+      scrollInterval = setInterval(() => {
+        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+          scrollContainer.scrollLeft = 0
+        } else {
+          scrollContainer.scrollLeft += 1
+        }
+      }, 20) // Adjust scroll speed here
+    }
+
+    const stopScrolling = () => {
+      clearInterval(scrollInterval)
+    }
+
+    scrollContainer.addEventListener("mouseenter", stopScrolling)
+    scrollContainer.addEventListener("mouseleave", startScrolling)
+
+    startScrolling()
+
+    return () => {
+      stopScrolling()
+      scrollContainer.removeEventListener("mouseenter", stopScrolling)
+      scrollContainer.removeEventListener("mouseleave", startScrolling)
+    }
+  }, [])
+
   // Sample reviews data
   const sampleReviews: Review[] = [
     {
@@ -91,11 +126,11 @@ export default function GoogleReviews() {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div ref={scrollRef} className="flex overflow-x-auto gap-6 py-4 max-w-7xl mx-auto scrollbar-hide">
           {sampleReviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+              className="min-w-[300px] bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
             >
               {/* Reviewer Info */}
               <div className="flex items-center gap-3 mb-4">

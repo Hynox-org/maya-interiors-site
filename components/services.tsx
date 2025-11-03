@@ -1,5 +1,8 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { UtensilsCrossed, HardDrive as Wardrobe, Sofa, Tv2, Building2, Home } from "lucide-react"
+import React, { useRef, useEffect } from "react"
 
 const services = [
   {
@@ -40,21 +43,55 @@ const services = [
 ]
 
 export default function Services() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current
+    if (!scrollContainer) return
+
+    let scrollInterval: NodeJS.Timeout
+
+    const startScrolling = () => {
+      scrollInterval = setInterval(() => {
+        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+          scrollContainer.scrollLeft = 0
+        } else {
+          scrollContainer.scrollLeft += 1
+        }
+      }, 20) // Adjust scroll speed here
+    }
+
+    const stopScrolling = () => {
+      clearInterval(scrollInterval)
+    }
+
+    scrollContainer.addEventListener("mouseenter", stopScrolling)
+    scrollContainer.addEventListener("mouseleave", startScrolling)
+
+    startScrolling()
+
+    return () => {
+      stopScrolling()
+      scrollContainer.removeEventListener("mouseenter", stopScrolling)
+      scrollContainer.removeEventListener("mouseleave", startScrolling)
+    }
+  }, [])
+
   return (
     <section className="w-full py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Expert Interior Design Services by Livinza</h2>
           <p className="text-lg text-muted-foreground">Discover our comprehensive range of luxury interior design solutions for residential and commercial properties.</p>
-        </div>
+        </div> */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={scrollRef} className="flex overflow-x-auto gap-8 py-4 scrollbar-hide">
           {services.map((service) => {
             const Icon = service.icon
             return (
               <Card
                 key={service.title}
-                className="group hover:shadow-xl transition-all duration-300 border-border hover:border-accent"
+                className="min-w-[300px] group hover:shadow-xl transition-all duration-300 border-border hover:border-accent"
               >
                 <CardContent className="p-8 text-center">
                   <div className="inline-block p-4 rounded-lg bg-accent/10 mb-4 group-hover:bg-accent/20 transition-colors">

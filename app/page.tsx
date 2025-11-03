@@ -34,13 +34,13 @@ export default function Home() {
     <main className="w-full overflow-hidden">
       <Header onContactClick={scrollToContact} onServiceClick={scrollToServices} onPortfolioClick={scrollToPortfolio} />
       <Hero onConsultClick={scrollToContact} />
-      <About />
+      {/* <About /> */}
       <div ref={servicesRef}>
         <Services />
       </div>
-      <div ref={portfolioRef}>
+      {/* <div ref={portfolioRef}>
         <Portfolio />
-      </div>
+      </div> */}
       
       {/* 10 Years Warranty Section */}
       <WarrantySection />
@@ -49,7 +49,7 @@ export default function Home() {
       <GoogleReviews />
       
       {/* Location Section with Google Maps Embed */}
-      <LocationSection />
+      <LocationSection onContactClick={scrollToContact}/>
       
       <Contact ref={contactRef} />
       <Footer />

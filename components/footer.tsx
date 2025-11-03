@@ -14,7 +14,7 @@ export default function Footer() {
               Livinza is an interior design company based in Chennai, India, specializing in modular kitchen and home interior design services with 15+ years of experience.
             </p>
           </div>
-          <div>
+          {/* <div>
             <h4 className="  font-bold text-lg mb-4">Services</h4>
             <ul className="text-sm space-y-2 opacity-75">
               <li>
@@ -53,7 +53,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div>
             <h4 className="  font-bold text-lg mb-4">Follow</h4>
             <div className="flex gap-3">
