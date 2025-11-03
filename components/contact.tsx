@@ -118,7 +118,7 @@ const Contact = forwardRef<HTMLDivElement>(function Contact(_, ref) {
 
               <Button
                 type="submit"
-                className="w-full bg-accent hover:bg-accent/90 text-white py-3 rounded-lg font-semibold transition-all duration-300"
+                className="w-full bg-[#8BA186] hover:bg-green-800/90 text-white py-3 rounded-lg font-semibold transition-all duration-300"
               >
                 Send Inquiry
               </Button>
@@ -160,24 +160,6 @@ const Contact = forwardRef<HTMLDivElement>(function Contact(_, ref) {
                     <p className="text-muted-foreground">123 Design Street, Design City, DC 12345</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div>
-              <p className="font-semibold text-foreground mb-4">Follow Us</p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
-                >
-                  <Instagram className="w-5 h-5 text-accent" />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
-                >
-                  <Facebook className="w-5 h-5 text-accent" />
-                </a>
               </div>
             </div>
           </div>
