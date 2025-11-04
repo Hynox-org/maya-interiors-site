@@ -56,7 +56,7 @@ export default function Home() {
       
       {/* WhatsApp Floating Button */}
       <WhatsAppFloat 
-        phoneNumber="919876543210" 
+        phoneNumber="919840808883" 
         message="Hi! I'd like to know more about your services."
       />
     </main>

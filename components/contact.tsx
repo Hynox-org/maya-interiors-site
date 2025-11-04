@@ -132,7 +132,7 @@ const Contact = forwardRef<HTMLDivElement>(function Contact(_, ref) {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">Phone</p>
-                    <p className="text-muted-foreground">+91 98765 43210</p>
+                    <p className="text-muted-foreground">+91 98408 08883</p>
                   </div>
                 </div>
 
