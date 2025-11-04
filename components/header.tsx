@@ -5,11 +5,10 @@ import { Menu, X } from "lucide-react"
 
 interface HeaderProps {
   onServiceClick?: () => void
-  onPortfolioClick?: () => void
   onContactClick?: () => void
 }
 
-export default function Header({ onServiceClick, onPortfolioClick, onContactClick }: HeaderProps) {
+export default function Header({ onServiceClick, onContactClick }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -24,7 +23,6 @@ export default function Header({ onServiceClick, onPortfolioClick, onContactClic
 
   const navItems = [
     { label: "Services", onClick: onServiceClick },
-    { label: "Portfolio", onClick: onPortfolioClick },
     { label: "Contact", onClick: onContactClick },
   ]
 

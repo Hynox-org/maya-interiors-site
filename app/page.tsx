@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <main className="w-full overflow-hidden">
-      <Header onContactClick={scrollToContact} onServiceClick={scrollToServices} onPortfolioClick={scrollToPortfolio} />
+      <Header onContactClick={scrollToContact} onServiceClick={scrollToServices} />
       <Hero onConsultClick={scrollToContact} />
       {/* <About /> */}
       <div ref={servicesRef}>
