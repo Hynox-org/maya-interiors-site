@@ -58,7 +58,7 @@ export default function Services() {
         } else {
           scrollContainer.scrollLeft += 1
         }
-      }, 20) // Adjust scroll speed here
+      }, 20)
     }
 
     const stopScrolling = () => {
@@ -78,27 +78,30 @@ export default function Services() {
   }, [])
 
   return (
-    <section className="w-full py-20 px-4 bg-white">
+    <section className="w-full px-3 sm:px-4 md:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Expert Interior Design Services by Livinza</h2>
-          <p className="text-lg text-muted-foreground">Discover our comprehensive range of luxury interior design solutions for residential and commercial properties.</p>
-        </div> */}
-
-        <div ref={scrollRef} className="flex overflow-x-auto gap-8 py-4 scrollbar-hide">
+        <div 
+          ref={scrollRef} 
+          className="flex overflow-x-auto gap-3 sm:gap-4 md:gap-6 lg:gap-8 py-3 sm:py-4 scrollbar-hide scroll-smooth"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {services.map((service) => {
             const Icon = service.icon
             return (
               <Card
                 key={service.title}
-                className="min-w-[300px] group hover:shadow-xl transition-all duration-300 border-border hover:border-accent"
+                className="w-[160px] sm:w-[200px] md:w-[260px] lg:w-[300px] flex-shrink-0 group hover:shadow-xl transition-all duration-300 border-border hover:border-accent"
               >
-                <CardContent className="p-8 text-center">
-                  <div className="inline-block p-4 rounded-lg bg-accent/10 mb-4 group-hover:bg-accent/20 transition-colors">
-                    <Icon className="w-8 h-8 text-accent" />
+                <CardContent className="p-3 sm:p-5 md:p-6 lg:p-8 text-center h-full flex flex-col">
+                  <div className="inline-block p-2 sm:p-3 md:p-4 rounded-lg bg-accent/10 mb-2 sm:mb-3 md:mb-4 group-hover:bg-accent/20 transition-colors mx-auto">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-accent" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-foreground mb-1.5 sm:mb-2 md:mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-[11px] sm:text-xs md:text-sm leading-relaxed">
+                    {service.description}
+                  </p>
                 </CardContent>
               </Card>
             )

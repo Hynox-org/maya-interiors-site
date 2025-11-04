@@ -1,99 +1,108 @@
-"use client"
+"use client";
 
-import { FaStar, FaGoogle } from "react-icons/fa"
-import React, { useRef, useEffect } from "react"
+import { FaStar, FaGoogle } from "react-icons/fa";
+import React, { useRef, useEffect } from "react";
 
 interface Review {
-  author_name: string
-  rating: number
-  text: string
-  relative_time_description: string
-  profile_photo_url: string
+  author_name: string;
+  rating: number;
+  text: string;
+  relative_time_description: string;
+  profile_photo_url: string;
 }
 
 export default function GoogleReviews() {
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const scrollContainer = scrollRef.current
-    if (!scrollContainer) return
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
 
-    let scrollInterval: NodeJS.Timeout
+    let scrollInterval: NodeJS.Timeout;
 
     const startScrolling = () => {
       scrollInterval = setInterval(() => {
-        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
-          scrollContainer.scrollLeft = 0
+        if (
+          scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+          scrollContainer.scrollWidth
+        ) {
+          scrollContainer.scrollLeft = 0;
         } else {
-          scrollContainer.scrollLeft += 1
+          scrollContainer.scrollLeft += 1;
         }
-      }, 20) // Adjust scroll speed here
-    }
+      }, 20); // Adjust scroll speed here
+    };
 
     const stopScrolling = () => {
-      clearInterval(scrollInterval)
-    }
+      clearInterval(scrollInterval);
+    };
 
-    scrollContainer.addEventListener("mouseenter", stopScrolling)
-    scrollContainer.addEventListener("mouseleave", startScrolling)
+    scrollContainer.addEventListener("mouseenter", stopScrolling);
+    scrollContainer.addEventListener("mouseleave", startScrolling);
 
-    startScrolling()
+    startScrolling();
 
     return () => {
-      stopScrolling()
-      scrollContainer.removeEventListener("mouseenter", stopScrolling)
-      scrollContainer.removeEventListener("mouseleave", startScrolling)
-    }
-  }, [])
+      stopScrolling();
+      scrollContainer.removeEventListener("mouseenter", stopScrolling);
+      scrollContainer.removeEventListener("mouseleave", startScrolling);
+    };
+  }, []);
 
   // Sample reviews data
   const sampleReviews: Review[] = [
     {
-      author_name: "Rajesh Kumar",
+      author_name: "Shy",
       rating: 5,
-      text: "Excellent quality furniture! We purchased a complete bedroom set from Livinza and couldn't be happier. The craftsmanship is outstanding and the 10-year warranty gives us peace of mind. Highly recommended!",
+      text: "Extremely happy with the outcome. The team was professional, understood our vision and budget perfectly, and delivered a beautiful home. The post-installation support was also excellent. Highly recommended!",
       relative_time_description: "2 weeks ago",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Rajesh+Kumar&background=BC6C25&color=fff&size=128"
+      profile_photo_url:
+        "https://ui-avatars.com/api/?name=Shy&background=BC6C25&color=fff&size=128",
     },
     {
-      author_name: "Priya Sharma",
+      author_name: "Sahul Hameed",
       rating: 5,
-      text: "Amazing service and beautiful designs! The team helped us choose the perfect sofa set for our living room. Delivery was on time and installation was professional. Worth every penny!",
+      text: "Maya Interior has done an excellent job on the interiors of my newly built house. The design and materials they used are outstanding...",
       relative_time_description: "1 month ago",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Priya+Sharma&background=606C38&color=fff&size=128"
+      profile_photo_url:
+        "https://ui-avatars.com/api/?name=Sahul+Hameed&background=606C38&color=fff&size=128",
     },
     {
-      author_name: "Arun Patel",
+      author_name: "LIC Dinagaran",
       rating: 5,
-      text: "Best furniture shopping experience! The showroom has a great collection and the staff is very knowledgeable. We got a custom dining table made and it turned out exactly as we wanted.",
+      text: "Great experience with Maya interior Mr.velu so convenient much they have progressed good quality professional service",
       relative_time_description: "3 weeks ago",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Arun+Patel&background=DDA15E&color=fff&size=128"
+      profile_photo_url:
+        "https://ui-avatars.com/api/?name=Dinagaran&background=DDA15E&color=fff&size=128",
     },
     {
-      author_name: "Sneha Reddy",
+      author_name: "Velmurugan Vel",
       rating: 4,
-      text: "Great quality products and reasonable prices. We furnished our entire home with Livinza furniture. The warranty service is excellent. Only minor delay in delivery but overall very satisfied.",
+      text: "Well skilled and professional,Overall project was executed satisfied,Completed the work within time,Good and happy with their work",
       relative_time_description: "2 months ago",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Sneha+Reddy&background=283618&color=fff&size=128"
+      profile_photo_url:
+        "https://ui-avatars.com/api/?name=Velmurugan+Vel&background=283618&color=fff&size=128",
     },
     {
-      author_name: "Vikram Singh",
+      author_name: "Geetha B Balasundaram",
       rating: 5,
-      text: "Livinza has the best modular kitchen designs! The quality is premium and installation was seamless. Their after-sales service is prompt and professional. Definitely recommend for anyone looking for quality furniture.",
+      text: "Mr.velu done very good job thanks to both designer and execution team project completed it nicely",
       relative_time_description: "1 week ago",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Vikram+Singh&background=BC6C25&color=fff&size=128"
+      profile_photo_url:
+        "https://ui-avatars.com/api/?name=Geetha+Balasundaram&background=BC6C25&color=fff&size=128",
     },
     {
-      author_name: "Meera Iyer",
+      author_name: "Dinesh M",
       rating: 5,
-      text: "Absolutely love our new wardrobe! The design is modern, storage space is excellent, and the finish is flawless. The team was very helpful throughout the selection process. Five stars!",
+      text: "The interior design has added so much positive energy to the house. It feels calm, luxurious, and truly 'ours'.",
       relative_time_description: "3 days ago",
-      profile_photo_url: "https://ui-avatars.com/api/?name=Meera+Iyer&background=606C38&color=fff&size=128"
-    }
-  ]
+      profile_photo_url:
+        "https://ui-avatars.com/api/?name=Dinesh&background=606C38&color=fff&size=128",
+    },
+  ];
 
-  const averageRating = 4.9
-  const totalReviews = 847
+  const averageRating = 4.9;
+  const totalReviews = 847;
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -101,14 +110,14 @@ export default function GoogleReviews() {
         key={i}
         className={i < rating ? "text-yellow-400" : "text-gray-300"}
       />
-    ))
-  }
+    ));
+  };
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-4">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-4">
           <div className="flex items-center justify-center gap-2 mb-4">
             <h2 className="text-4xl md:text-5xl font-bold text-black">
               Google Reviews
@@ -126,7 +135,10 @@ export default function GoogleReviews() {
         </div>
 
         {/* Reviews Grid */}
-        <div ref={scrollRef} className="flex overflow-x-auto gap-6 py-4 max-w-7xl mx-auto scrollbar-hide">
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto gap-6 py-4 max-w-7xl mx-auto scrollbar-hide"
+        >
           {sampleReviews.map((review, index) => (
             <div
               key={index}
@@ -155,26 +167,24 @@ export default function GoogleReviews() {
               </div>
 
               {/* Review Text */}
-              <p className="text-black leading-relaxed">
-                {review.text}
-              </p>
+              <p className="text-black leading-relaxed">{review.text}</p>
             </div>
           ))}
         </div>
 
         {/* View All Reviews Button */}
-        <div className="text-center mt-12">
+        <div className="text-center py-5">
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Livinza+Furniture+Chennai"
+            href="https://maps.app.goo.gl/EHGRHkJcZmmqTt4P7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#8BA186] text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex justify-center items-center gap-2 bg-[#8BA186] text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
           >
-            <FaGoogle />
+            <FaGoogle className="h-8 w-8" />
             View All Reviews on Google
           </a>
         </div>
       </div>
     </section>
-  )
+  );
 }
