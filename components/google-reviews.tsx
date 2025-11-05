@@ -1,7 +1,8 @@
 "use client";
 
-import { FaStar, FaGoogle } from "react-icons/fa";
+import { FaStar, FaGoogle, FaDirections, FaClock } from "react-icons/fa";
 import React, { useRef, useEffect } from "react";
+import { Button } from "./ui/button";
 
 interface Review {
   author_name: string;
@@ -11,7 +12,11 @@ interface Review {
   profile_photo_url: string;
 }
 
-export default function GoogleReviews() {
+interface HeaderProps {
+  onContactClick?: () => void;
+}
+
+export default function GoogleReviews({ onContactClick }: HeaderProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,8 +24,10 @@ export default function GoogleReviews() {
     if (!scrollContainer) return;
 
     let scrollInterval: NodeJS.Timeout;
+    let isUserInteracting = false;
 
     const startScrolling = () => {
+      if (isUserInteracting) return;
       scrollInterval = setInterval(() => {
         if (
           scrollContainer.scrollLeft + scrollContainer.clientWidth >=
@@ -30,22 +37,54 @@ export default function GoogleReviews() {
         } else {
           scrollContainer.scrollLeft += 1;
         }
-      }, 20); // Adjust scroll speed here
+      }, 20);
     };
 
     const stopScrolling = () => {
       clearInterval(scrollInterval);
     };
 
-    scrollContainer.addEventListener("mouseenter", stopScrolling);
-    scrollContainer.addEventListener("mouseleave", startScrolling);
+    const handleMouseEnter = () => {
+      isUserInteracting = true;
+      stopScrolling();
+    };
+
+    const handleMouseLeave = () => {
+      isUserInteracting = false;
+      startScrolling();
+    };
+
+    const handleTouchStart = () => {
+      isUserInteracting = true;
+      stopScrolling();
+    };
+
+    const handleTouchEnd = () => {
+      isUserInteracting = false;
+      setTimeout(() => {
+        if (!isUserInteracting) {
+          startScrolling();
+        }
+      }, 2000);
+    };
+
+    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
+    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+    scrollContainer.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
+    scrollContainer.addEventListener("touchend", handleTouchEnd, {
+      passive: true,
+    });
 
     startScrolling();
 
     return () => {
       stopScrolling();
-      scrollContainer.removeEventListener("mouseenter", stopScrolling);
-      scrollContainer.removeEventListener("mouseleave", startScrolling);
+      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
+      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
+      scrollContainer.removeEventListener("touchstart", handleTouchStart);
+      scrollContainer.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
@@ -138,6 +177,12 @@ export default function GoogleReviews() {
         <div
           ref={scrollRef}
           className="flex overflow-x-auto gap-6 py-4 max-w-7xl mx-auto scrollbar-hide"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+            touchAction: "pan-x",
+          }}
         >
           {sampleReviews.map((review, index) => (
             <div
@@ -172,17 +217,35 @@ export default function GoogleReviews() {
           ))}
         </div>
 
-        {/* View All Reviews Button */}
-        <div className="text-center py-5">
+        {/* Action Buttons - Responsive and Consistent */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 py-8 px-4">
           <a
             href="https://maps.app.goo.gl/EHGRHkJcZmmqTt4P7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex justify-center items-center gap-2 bg-[#8BA186] text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#8BA186] hover:bg-[#7a9177] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 shadow-[0_10px_30px_rgba(139,161,134,0.3)] hover:shadow-[0_15px_40px_rgba(139,161,134,0.4)] hover:-translate-y-0.5 active:translate-y-0"
           >
-            <FaGoogle className="h-8 w-8" />
-            View All Reviews on Google
+            <FaGoogle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <span className="whitespace-nowrap">View All Reviews</span>
           </a>
+
+          <a
+            href="https://maps.app.goo.gl/EHGRHkJcZmmqTt4P7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#8BA186] hover:bg-[#7a9177] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 shadow-[0_10px_30px_rgba(139,161,134,0.3)] hover:shadow-[0_15px_40px_rgba(139,161,134,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <FaDirections className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <span className="whitespace-nowrap">Get Directions</span>
+          </a>
+
+          <button
+            onClick={onContactClick}
+            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#8BA186] hover:bg-[#7a9177] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 shadow-[0_10px_30px_rgba(139,161,134,0.3)] hover:shadow-[0_15px_40px_rgba(139,161,134,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <FaClock className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <span className="whitespace-nowrap">Book Appointment</span>
+          </button>
         </div>
       </div>
     </section>

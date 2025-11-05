@@ -50,8 +50,10 @@ export default function Services() {
     if (!scrollContainer) return
 
     let scrollInterval: NodeJS.Timeout
+    let isUserInteracting = false
 
     const startScrolling = () => {
+      if (isUserInteracting) return
       scrollInterval = setInterval(() => {
         if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
           scrollContainer.scrollLeft = 0
@@ -65,15 +67,43 @@ export default function Services() {
       clearInterval(scrollInterval)
     }
 
-    scrollContainer.addEventListener("mouseenter", stopScrolling)
-    scrollContainer.addEventListener("mouseleave", startScrolling)
+    const handleMouseEnter = () => {
+      isUserInteracting = true
+      stopScrolling()
+    }
+
+    const handleMouseLeave = () => {
+      isUserInteracting = false
+      startScrolling()
+    }
+
+    const handleTouchStart = () => {
+      isUserInteracting = true
+      stopScrolling()
+    }
+
+    const handleTouchEnd = () => {
+      isUserInteracting = false
+      setTimeout(() => {
+        if (!isUserInteracting) {
+          startScrolling()
+        }
+      }, 2000) // Resume auto-scroll 2 seconds after touch ends
+    }
+
+    scrollContainer.addEventListener("mouseenter", handleMouseEnter)
+    scrollContainer.addEventListener("mouseleave", handleMouseLeave)
+    scrollContainer.addEventListener("touchstart", handleTouchStart, { passive: true })
+    scrollContainer.addEventListener("touchend", handleTouchEnd, { passive: true })
 
     startScrolling()
 
     return () => {
       stopScrolling()
-      scrollContainer.removeEventListener("mouseenter", stopScrolling)
-      scrollContainer.removeEventListener("mouseleave", startScrolling)
+      scrollContainer.removeEventListener("mouseenter", handleMouseEnter)
+      scrollContainer.removeEventListener("mouseleave", handleMouseLeave)
+      scrollContainer.removeEventListener("touchstart", handleTouchStart)
+      scrollContainer.removeEventListener("touchend", handleTouchEnd)
     }
   }, [])
 
@@ -83,7 +113,12 @@ export default function Services() {
         <div 
           ref={scrollRef} 
           className="flex overflow-x-auto gap-3 sm:gap-4 md:gap-6 lg:gap-8 py-3 sm:py-4 scrollbar-hide scroll-smooth"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch', // Critical for iOS smooth scrolling
+            touchAction: 'pan-x', // Allow horizontal touch scrolling
+          }}
         >
           {services.map((service) => {
             const Icon = service.icon

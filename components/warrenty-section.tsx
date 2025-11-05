@@ -8,7 +8,7 @@ export default function WarrantySection() {
       <div className="container mx-auto px-3 sm:px-4 md:px-6 max-w-6xl">
         
         {/* Two Hero Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           
           {/* 10 Years Warranty */}
           <div className="group relative">

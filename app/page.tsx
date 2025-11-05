@@ -46,10 +46,7 @@ export default function Home() {
       <WarrantySection />
       
       {/* Google Reviews Section with Sample Data */}
-      <GoogleReviews />
-      
-      {/* Location Section with Google Maps Embed */}
-      <LocationSection onContactClick={scrollToContact}/>
+      <GoogleReviews onContactClick={scrollToContact}/>
       
       <Contact ref={contactRef} />
       <Footer />
