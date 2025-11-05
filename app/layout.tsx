@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     title: "LIVINZA - Interior Design & Renovation Services",
     description:
       "LIVINZA: Expert interior design and renovation services for homes and businesses. Create beautiful, functional spaces with our consultation.",
-    url: "https://www.mayainteriors.com", // Replace with actual domain
+    url: "https://www.livinza.in", // Replace with actual domain
     siteName: "LIVINZA",
     images: [
       {
-        url: "https://www.mayainteriors.com/placeholder-logo.png", // Replace with an actual image for social sharing
+        url: "https://www.livinza.in/placeholder-logo.png", // Replace with an actual image for social sharing
         width: 800,
         height: 600,
         alt: "LIVINZA - Interior Design",

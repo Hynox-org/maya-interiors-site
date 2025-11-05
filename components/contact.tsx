@@ -170,7 +170,7 @@ Message: ${formData.message}`;
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">Email</p>
-                    <p className="text-muted-foreground">hello@interiors.com</p>
+                    <p className="text-muted-foreground">mayainteriors.in@gmail.com</p>
                   </div>
                 </div>
 
@@ -181,7 +181,7 @@ Message: ${formData.message}`;
                   <div>
                     <p className="font-semibold text-foreground">Address</p>
                     <p className="text-muted-foreground">
-                      123 Design Street, Design City, DC 12345
+                      3 chellammal Nagar, Mettu Rd, Numbal, Poonamalle, Thundalam, Tamil Nadu 600077
                     </p>
                   </div>
                 </div>
