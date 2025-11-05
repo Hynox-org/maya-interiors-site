@@ -24,9 +24,19 @@ const Contact = forwardRef<HTMLDivElement>(function Contact(_, ref) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Here you would integrate with EmailJS or Formspree
-    alert("Thank you for your inquiry! We will contact you shortly.")
+
+    const phoneNumber = "919840808883" // Extracted from the contact info section
+    const message = `Hello, I'm interested in your services.
+Name: ${formData.name}
+Mobile: ${formData.mobile}
+Email: ${formData.email}
+Project Type: ${formData.projectType}
+Message: ${formData.message}`
+
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+
     setFormData({ name: "", mobile: "", email: "", projectType: "", message: "" })
   }
 
