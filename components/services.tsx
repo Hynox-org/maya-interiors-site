@@ -108,18 +108,17 @@ export default function Services() {
   }, [])
 
   return (
-    <section className="w-full px-3 sm:px-4 md:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div 
-          ref={scrollRef} 
-          className="flex overflow-x-auto gap-3 sm:gap-4 md:gap-6 lg:gap-8 py-3 sm:py-4 scrollbar-hide scroll-smooth"
-          style={{ 
-            scrollbarWidth: 'none', 
-            msOverflowStyle: 'none',
-            WebkitOverflowScrolling: 'touch', // Critical for iOS smooth scrolling
-            touchAction: 'pan-x', // Allow horizontal touch scrolling
-          }}
-        >
+    <section className="w-full bg-white">
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto gap-3 sm:gap-4 md:gap-6 lg:gap-8 py-3 sm:py-4 scrollbar-hide max-w-7xl mx-auto px-3 sm:px-4 md:px-6"
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitOverflowScrolling: 'touch', // Critical for iOS smooth scrolling
+          touchAction: 'pan-x', // Allow horizontal touch scrolling
+        }}
+      >
           {services.map((service) => {
             const Icon = service.icon
             return (
@@ -142,7 +141,6 @@ export default function Services() {
             )
           })}
         </div>
-      </div>
     </section>
   )
 }
