@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { forwardRef, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react"
+import { forwardRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
 
 const Contact = forwardRef<HTMLDivElement>(function Contact(_, ref) {
   const [formData, setFormData] = useState({
@@ -13,47 +13,63 @@ const Contact = forwardRef<HTMLDivElement>(function Contact(_, ref) {
     email: "",
     projectType: "",
     message: "",
-  })
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const phoneNumber = "919840808883" // Extracted from the contact info section
+    const phoneNumber = "919840808883"; // Extracted from the contact info section
     const message = `Hello, I'm interested in your services.
 Name: ${formData.name}
 Mobile: ${formData.mobile}
 Email: ${formData.email}
 Project Type: ${formData.projectType}
-Message: ${formData.message}`
+Message: ${formData.message}`;
 
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-    setFormData({ name: "", mobile: "", email: "", projectType: "", message: "" })
-  }
+    setFormData({
+      name: "",
+      mobile: "",
+      email: "",
+      projectType: "",
+      message: "",
+    });
+  };
 
   return (
     <section ref={ref} className="w-full py-4 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl   font-bold text-foreground mb-4">
-            Let's Discuss Your Dream Interior
+        <div className="text-center mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#8BA186] mb-2">
+            Livinza
           </h2>
+          <p className="text-2xl font-light text-primary mb-4">
+            interior for you
+          </p>
           <p className="text-lg text-muted-foreground">Get in touch with our team for a personalized consultation</p>
-        </div> */}
+        </div>
 
         <div className="grid md:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="md:col-span-2">
-            <form onSubmit={handleSubmit} className="space-y-6 bg-accent/5 p-8 rounded-lg">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 bg-accent/5 p-8 rounded-lg"
+            >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <input
@@ -100,10 +116,10 @@ Message: ${formData.message}`
                     className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                   >
                     <option value="">Type of Project *</option>
-                    <option value="1bhk">1 BHK</option>
                     <option value="2bhk">2 BHK</option>
                     <option value="3bhk">3 BHK</option>
-                    <option value="commercial">Commercial</option>
+                    <option value="4bhk">4 BHK</option>
+                    <option value="modularKitchen">Modular Kitchen</option>
                     <option value="office">Office</option>
                   </select>
                 </div>
@@ -133,7 +149,9 @@ Message: ${formData.message}`
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl   font-bold text-foreground mb-6">Get in Touch</h3>
+              <h3 className="text-2xl   font-bold text-foreground mb-6">
+                Get in Touch
+              </h3>
 
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -162,7 +180,9 @@ Message: ${formData.message}`
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">Address</p>
-                    <p className="text-muted-foreground">123 Design Street, Design City, DC 12345</p>
+                    <p className="text-muted-foreground">
+                      123 Design Street, Design City, DC 12345
+                    </p>
                   </div>
                 </div>
               </div>
@@ -171,7 +191,7 @@ Message: ${formData.message}`
         </div>
       </div>
     </section>
-  )
-})
+  );
+});
 
-export default Contact
+export default Contact;

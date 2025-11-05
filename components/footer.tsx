@@ -11,19 +11,19 @@ export default function Footer() {
         <div className="border-t border-white/20 flex flex-col md:flex-row justify-between items-center align-center text-center gap-5 text-sm opacity-75">
           <div className="flex gap-3">
             <a
-              href="#"
+              href="https://www.instagram.com/livinza.interior?igsh=aWtvdWIxYzRjNXhv&utm_source=qr"
               className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center hover:bg-accent/40 transition-colors"
             >
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/share/1DDVKioxtD/"
               className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center hover:bg-accent/40 transition-colors"
             >
               <Facebook className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.youtube.com/@Livinza"
               className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center hover:bg-accent/40 transition-colors"
             >
               <FaYoutube className="w-5 h-5" />
