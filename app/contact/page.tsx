@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="flex-grow">
         <Contact />
       </div>
-      <Footer />
+      {/* <Footer /> */}
       <WhatsAppFloat
         phoneNumber="919840808883"
         message="Hi! I'd like to know more about your services."

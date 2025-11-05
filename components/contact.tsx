@@ -145,49 +145,6 @@ Message: ${formData.message}`;
               </Button>
             </form>
           </div>
-
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl   font-bold text-foreground mb-6">
-                Get in Touch
-              </h3>
-
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <Phone className="w-6 h-6 text-accent mt-1" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Phone</p>
-                    <p className="text-muted-foreground">+91 98408 08883</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <Mail className="w-6 h-6 text-accent mt-1" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Email</p>
-                    <p className="text-muted-foreground">mayainteriors.in@gmail.com</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-accent mt-1" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Address</p>
-                    <p className="text-muted-foreground">
-                      3 chellammal Nagar, Mettu Rd, Numbal, Poonamalle, Thundalam, Tamil Nadu 600077
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

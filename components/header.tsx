@@ -32,15 +32,14 @@ export default function Header({ onServiceClick }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex flex-col items-start">
+        <Link href="/" className="flex flex-col items-start cursor-pointer">
           <div className="text-3xl font-bold text-[#8BA186]">
             Livinza
           </div>
           <div className="text-lg font-light text-primary -mt-2">
             interior for you
           </div>
-        </div>
-
+        </Link>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (

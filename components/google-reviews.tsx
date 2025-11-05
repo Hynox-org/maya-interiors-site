@@ -34,7 +34,7 @@ export default function GoogleReviews() {
         } else {
           scrollContainer.scrollLeft += 1;
         }
-      }, 20);
+      }, 40); // Increased interval for slower scroll and potentially smoother animation on iOS
     };
 
     const stopScrolling = () => {
