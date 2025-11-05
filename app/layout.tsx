@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google"
+import { poppins } from "@/lib/fonts"
 import "./globals.css"
 import FacebookPixel from "@/components/FacebookPixel"
 
@@ -34,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
         <Analytics />
         <FacebookPixel />

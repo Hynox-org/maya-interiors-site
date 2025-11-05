@@ -1,15 +1,17 @@
 "use client"
 
 import { useRef } from "react"
+import dynamic from "next/dynamic"
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import About from "@/components/about"
-import Services from "@/components/services"
-import Portfolio from "@/components/portfolio"
-import WarrantySection from "@/components/warrenty-section"
-import GoogleReviews from "@/components/google-reviews"
-import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
+
+const Services = dynamic(() => import("@/components/services"), { loading: () => <p>Loading services...</p> })
+const Portfolio = dynamic(() => import("@/components/portfolio"), { loading: () => <p>Loading portfolio...</p> })
+const WarrantySection = dynamic(() => import("@/components/warrenty-section"), { loading: () => <p>Loading warranty...</p> })
+const GoogleReviews = dynamic(() => import("@/components/google-reviews"), { loading: () => <p>Loading reviews...</p> })
+const Footer = dynamic(() => import("@/components/footer"), { loading: () => <p>Loading footer...</p> })
+const WhatsAppFloat = dynamic(() => import("@/components/whatsapp-float"), { ssr: false, loading: () => <p>Loading chat...</p> })
 
 export default function Home() {
   const servicesRef = useRef<HTMLDivElement>(null)

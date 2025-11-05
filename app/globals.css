@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-poppins: "Poppins", sans-serif;
+  --font-poppins: var(--font-poppins);
   /* Updated color tokens to match sage green theme #8BA186 */
   --background: 0 0% 100%; /* white */
   --foreground: 0 0% 0%; /* black */

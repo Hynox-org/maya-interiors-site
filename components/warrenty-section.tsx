@@ -37,33 +37,6 @@ export default function WarrantySection() {
           </div>
         </div>
 
-        {/* Benefits List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-8 sm:mt-10 md:mt-12">
-          <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 md:p-6 bg-gray-50 rounded-xl sm:rounded-2xl hover:bg-gray-100 transition-colors duration-300">
-            <FaCheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#8BA186] flex-shrink-0 mt-1" />
-            <div>
-              <h4 className="font-bold text-sm sm:text-base text-gray-900 mb-1">Premium Materials</h4>
-              <p className="text-gray-600 text-xs sm:text-sm">Certified quality & international standards</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 md:p-6 bg-gray-50 rounded-xl sm:rounded-2xl hover:bg-gray-100 transition-colors duration-300">
-            <FaCheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#8BA186] flex-shrink-0 mt-1" />
-            <div>
-              <h4 className="font-bold text-sm sm:text-base text-gray-900 mb-1">Free Maintenance</h4>
-              <p className="text-gray-600 text-xs sm:text-sm">Complimentary service throughout warranty period</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 md:p-6 bg-gray-50 rounded-xl sm:rounded-2xl hover:bg-gray-100 transition-colors duration-300">
-            <FaCheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#8BA186] flex-shrink-0 mt-1" />
-            <div>
-              <h4 className="font-bold text-sm sm:text-base text-gray-900 mb-1">24/7 Support</h4>
-              <p className="text-gray-600 text-xs sm:text-sm">Dedicated assistance whenever you need it</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   )
