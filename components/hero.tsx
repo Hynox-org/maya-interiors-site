@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter()
   return (
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-25">
       <div className="max-w-7xl w-full">
@@ -25,6 +27,7 @@ export default function Hero() {
             <div className="absolute bottom-14 sm:bottom-20 lg:bottom-18 left-1/2 -translate-x-1/2 z-10 w-full px-6 sm:px-8 flex justify-center">
               <Button
                 className="bg-[#8BA186] hover:bg-[#7a9177] text-white px-8 sm:px-10 py-6 sm:py-7 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 shadow-[0_10px_30px_rgba(139,161,134,0.3)] hover:shadow-[0_15px_40px_rgba(139,161,134,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-3 w-full sm:w-auto max-w-md"
+                onClick={() => router.push("/contact")}
               >
                 Get Free Consultation
                 <ArrowRight className="w-5 h-5" />
