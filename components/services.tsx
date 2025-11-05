@@ -60,7 +60,7 @@ export default function Services() {
         } else {
           scrollContainer.scrollLeft += 1
         }
-      }, 100) // Increased interval for slower scroll and potentially smoother animation on iOS
+      },40) // Increased interval for slower scroll and potentially smoother animation on iOS
     }
 
     const stopScrolling = () => {
