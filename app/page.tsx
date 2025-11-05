@@ -8,18 +8,12 @@ import Services from "@/components/services"
 import Portfolio from "@/components/portfolio"
 import WarrantySection from "@/components/warrenty-section"
 import GoogleReviews from "@/components/google-reviews"
-import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import WhatsAppFloat from "@/components/whatsapp-float"
 
 export default function Home() {
-  const contactRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
   const portfolioRef = useRef<HTMLDivElement>(null)
-
-  const scrollToContact = () => {
-    contactRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
 
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -31,10 +25,11 @@ export default function Home() {
 
   return (
     <main className="w-full overflow-hidden">
-      <Header onContactClick={scrollToContact} onServiceClick={scrollToServices} />
-      <Hero onConsultClick={scrollToContact} />
+      <Header onServiceClick={scrollToServices} />
+      <Hero />
+      <h1 className="sr-only">Livinza - Interior Design and Renovation Services</h1>
       {/* <About /> */}
-      <div ref={servicesRef}>
+      <div ref={servicesRef} id="services">
         <Services />
       </div>
       {/* <div ref={portfolioRef}>
@@ -45,9 +40,8 @@ export default function Home() {
       <WarrantySection />
       
       {/* Google Reviews Section with Sample Data */}
-      <GoogleReviews onContactClick={scrollToContact}/>
+      <GoogleReviews />
       
-      <Contact ref={contactRef} />
       <Footer />
       
       {/* WhatsApp Floating Button */}

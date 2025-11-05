@@ -2,6 +2,7 @@
 
 import { FaStar, FaGoogle, FaDirections, FaClock } from "react-icons/fa";
 import React, { useRef, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 interface Review {
@@ -12,11 +13,7 @@ interface Review {
   profile_photo_url: string;
 }
 
-interface HeaderProps {
-  onContactClick?: () => void;
-}
-
-export default function GoogleReviews({ onContactClick }: HeaderProps) {
+export default function GoogleReviews() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -239,13 +236,13 @@ export default function GoogleReviews({ onContactClick }: HeaderProps) {
             <span className="whitespace-nowrap">Get Directions</span>
           </a>
 
-          <button
-            onClick={onContactClick}
+          <Link
+            href="/contact"
             className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#8BA186] hover:bg-[#7a9177] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 shadow-[0_10px_30px_rgba(139,161,134,0.3)] hover:shadow-[0_15px_40px_rgba(139,161,134,0.4)] hover:-translate-y-0.5 active:translate-y-0"
           >
             <FaClock className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
             <span className="whitespace-nowrap">Book Appointment</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

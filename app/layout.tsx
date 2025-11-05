@@ -6,20 +6,20 @@ import "./globals.css"
 import FacebookPixel from "@/components/FacebookPixel"
 
 export const metadata: Metadata = {
-  title: "Livinza | Luxury Interior Design & Home Decor",
-  description: "Livinza is an interior design company based in Chennai, India, specializing in modular kitchen and home interior design services with 15+ years of experience. We offer comprehensive solutions for residential and commercial spaces, including wardrobes, TV units, and Pooja units.",
+  title: "Maya Interiors - Interior Design & Renovation Services",
+  description: "Maya Interiors: Expert interior design and renovation services for homes and businesses. Create beautiful, functional spaces with our consultation.",
   generator: "hynox",
   openGraph: {
-    title: "Livinza | Luxury Interior Design & Home Decor",
-    description: "Livinza is an interior design company based in Chennai, India, specializing in modular kitchen and home interior design services with 15+ years of experience. We offer comprehensive solutions for residential and commercial spaces, including wardrobes, TV units, and Pooja units.",
-    url: "https://www.livinza.in",
-    siteName: "Livinza",
+    title: "Maya Interiors - Interior Design & Renovation Services",
+    description: "Maya Interiors: Expert interior design and renovation services for homes and businesses. Create beautiful, functional spaces with our consultation.",
+    url: "https://www.mayainteriors.com", // Replace with actual domain
+    siteName: "Maya Interiors",
     images: [
       {
-        url: "https://www.livinza.in/placeholder-logo.png", // Replace with an actual image for social sharing
+        url: "https://www.mayainteriors.com/placeholder-logo.png", // Replace with an actual image for social sharing
         width: 800,
         height: 600,
-        alt: "Livinza Interior Design",
+        alt: "Maya Interiors - Interior Design",
       },
     ],
     locale: "en_IN",
