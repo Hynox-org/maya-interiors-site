@@ -31,6 +31,11 @@ export default function Footer() {
           </div>
           <p>Copyright © {currentYear} Livinza. All rights reserved.</p>
           <p>
+            <Link href="/privacy-policy" className="hover:underline">
+              Privacy Policy
+            </Link>
+          </p>
+          <p>
             Developed by{" "}
             <span>
               <Link href={"https://www.hynox.in"}>HYNOX</Link>

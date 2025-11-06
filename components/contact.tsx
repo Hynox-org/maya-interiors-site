@@ -63,9 +63,9 @@ Message: ${formData.message}`;
           <p className="text-lg text-muted-foreground">Get in touch with our team for a personalized consultation</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid place-items-center">
           {/* Contact Form */}
-          <div className="md:col-span-2">
+          <div className="">
             <form
               onSubmit={handleSubmit}
               className="space-y-6 bg-accent/5 p-8 rounded-lg"

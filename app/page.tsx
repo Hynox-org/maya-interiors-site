@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import About from "@/components/about"
+import Contact from "@/components/contact"
 
 const Services = dynamic(() => import("@/components/services"), { loading: () => <p>Loading services...</p> })
 const Portfolio = dynamic(() => import("@/components/portfolio"), { loading: () => <p>Loading portfolio...</p> })
@@ -43,6 +44,8 @@ export default function Home() {
       
       {/* Google Reviews Section with Sample Data */}
       <GoogleReviews />
+
+      <Contact />
       
       <Footer />
       

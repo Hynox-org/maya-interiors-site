@@ -5,6 +5,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { poppins } from "@/lib/fonts";
 import "./globals.css";
 import FacebookPixel from "@/components/FacebookPixel";
+import CookieBanner from "@/components/cookie-banner";
 
 export const metadata: Metadata = {
   title: "LIVINZA - Interior Design & Renovation Services",
@@ -44,6 +45,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GTM_ID}`} />
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GA_ID}`} />{" "}
         {/* Replace with your actual GA4 Measurement ID */}
+        <CookieBanner />
       </body>
     </html>
   );
