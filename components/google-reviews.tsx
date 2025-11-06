@@ -115,7 +115,7 @@ export default function GoogleReviews() {
           >
             {sampleReviews.map((review, index) => (
               <SwiperSlide key={index} style={{ width: '300px' }}>
-                <div className="bg-white rounded-xl p-6 shadow-sm mt-4 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                <div className="bg-white rounded-xl p-6 shadow-sm my-4 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
                   {/* Reviewer Info */}
                   <div className="flex items-center gap-3 mb-4">
                     <img
